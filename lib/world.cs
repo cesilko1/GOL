@@ -45,6 +45,7 @@ namespace GolWorld {
 			for(int i = 0; i < WorldSizeX+2; i++) {
 				Console.Write("=");
 			}
+			Console.WriteLine();
 
 			//print columns
 			for(int Y = 0; Y < WorldSizeY; Y++) {
