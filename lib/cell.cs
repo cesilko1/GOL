@@ -4,59 +4,52 @@ namespace GolWorld {
 
 	public class Cell {
 		//==================== ATRIBUTES ====================//
-		//***************************************************//
 
-		//status of cell with public getter and private setter
-		public bool Alive { get; private set; } = false;
+		//status of cell
+		public bool Alive = false;
 
 		//position of cell
 		public int PositionX { get; private set; }
 		public int PositionY { get; private set; }
 
 		//characters to represent cell in console
-		public char AliveChar { get; private set; } = '#';
+		public char TypeChar = '#';
 		public char DeadChar { get; private set; } = ' ';
 
 
 		//==================== CONSTRUCTORS ====================//
-		//******************************************************//
 
-		//constructor for cell with position
+		//constructor for cell with position and type
 		public Cell(int PositionX, int PositionY) {
 			this.PositionX = PositionX;
 			this.PositionY = PositionY;
 		}
 
 		//constructor for cell with position and char definitions
-		public Cell(int PositionX, int PositionY, char AliveChar, char DeadChar) {
+		public Cell(int PositionX, int PositionY, char TypeChar, char DeadChar) {
 			this.PositionX = PositionX;
 			this.PositionY = PositionY;
-			this.AliveChar = AliveChar;
+			this.TypeChar  = TypeChar;
 			this.DeadChar  = DeadChar;
 		}
 
 
 		//==================== METHODS ====================//
-		//*************************************************//
 
 		//returns console char
-		public char Show() {
+		public void Show() {
 
 			if(Alive) {
-				return AliveChar;
+				Console.Write(TypeChar);
 			}
 			else {
-				return DeadChar;
+				Console.Write(DeadChar);
 			}
 
 		}
 
-		//check if cell will die or alive
-		public void CheckStatus(Cell[][] World) {
 
 
-
-		}
 
 	}
 

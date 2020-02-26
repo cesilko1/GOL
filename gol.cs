@@ -5,40 +5,22 @@ class gol {
 
 	static void Main(string[] args) {
 		
-		//disable cursor
 		Console.CursorVisible = false;
-		Console.Clear();
-
-		//get width and height of world
-		int WorldWidth = Console.WindowWidth;
-		int WorldHeight = Console.WindowHeight;
-
-		//create an array of world matrix
-		Cell[,] World = new Cell[WorldWidth, WorldHeight];
-
-
-		for(int Y = 0; Y < WorldHeight; Y++) {
-
-			for(int X = 0; X < WorldWidth; X++) {
-
-				World[X, Y] = new Cell(X, Y, '#', '.');
-
-			}
-
-		}
-
 		
-		for(int Y = 0; Y < WorldHeight; Y++) {
+		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
 
-			for(int X = 0; X < WorldWidth; X++) {
+		world.ReviveCell(20, 5, '#');
+		world.ReviveCell(20, 6, '#');
+		world.ReviveCell(21, 6, '#');
 
-				Console.Write(World[X, Y].Show());
+		world.ReviveCell(35, 3, 'X');
+		world.ReviveCell(34, 2, 'X');
 
-			}
+		world.Display();
 
-			Console.WriteLine();
 
-		}
+
+		Console.CursorVisible = true;
 
 		Console.ReadKey();
 	}
