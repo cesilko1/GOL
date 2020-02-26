@@ -1,8 +1,10 @@
 using System;
 
-namespace Cells {
+namespace GolWorld {
 
 	public class Cell {
+		//==================== ATRIBUTES ====================//
+		//***************************************************//
 
 		//status of cell with public getter and private setter
 		public bool Alive { get; private set; } = false;
@@ -15,6 +17,9 @@ namespace Cells {
 		public char AliveChar { get; private set; } = '#';
 		public char DeadChar { get; private set; } = ' ';
 
+
+		//==================== CONSTRUCTORS ====================//
+		//******************************************************//
 
 		//constructor for cell with position
 		public Cell(int PositionX, int PositionY) {
@@ -30,14 +35,29 @@ namespace Cells {
 			this.DeadChar  = DeadChar;
 		}
 
+
+		//==================== METHODS ====================//
+		//*************************************************//
+
+		//returns console char
 		public char Show() {
+
 			if(Alive) {
 				return AliveChar;
 			}
 			else {
 				return DeadChar;
 			}
+
 		}
+
+		//check if cell will die or alive
+		public void CheckStatus(Cell[][] World) {
+
+
+
+		}
+
 	}
 
 }

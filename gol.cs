@@ -1,5 +1,5 @@
 using System;
-using Cells;
+using GolWorld;
 
 class gol {
 
