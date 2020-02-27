@@ -13,7 +13,7 @@ namespace GolWorld {
 		public int PositionY { get; private set; }
 
 		//characters to represent cell in console
-		public char TypeChar = '#';
+		public char Type = '#';
 		public char DeadChar { get; private set; } = ' ';
 
 
@@ -26,10 +26,10 @@ namespace GolWorld {
 		}
 
 		//constructor for cell with position and char definitions
-		public Cell(int PositionX, int PositionY, char TypeChar, char DeadChar) {
+		public Cell(int PositionX, int PositionY, char Type, char DeadChar) {
 			this.PositionX = PositionX;
 			this.PositionY = PositionY;
-			this.TypeChar  = TypeChar;
+			this.Type      = Type;
 			this.DeadChar  = DeadChar;
 		}
 
@@ -40,7 +40,7 @@ namespace GolWorld {
 		public void Show() {
 
 			if(Alive) {
-				Console.Write(TypeChar);
+				Console.Write(Type);
 			}
 			else {
 				Console.Write(DeadChar);

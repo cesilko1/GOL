@@ -29,8 +29,8 @@ namespace GolWorld {
 
 		//revives the cell and set type
 		public void ReviveCell(int X, int Y, char Type) {
-			cells[X, Y].Alive    = true;
-			cells[X, Y].TypeChar = Type;
+			cells[X, Y].Alive = true;
+			cells[X, Y].Type  = Type;
 		}
 
 		//kills the cell
@@ -40,8 +40,10 @@ namespace GolWorld {
 
 		//displays world in console
 		public void Display() {
+
 			Console.Clear();
 
+			//print top border
 			for(int i = 0; i < WorldSizeX+2; i++) {
 				Console.Write("=");
 			}
@@ -50,6 +52,7 @@ namespace GolWorld {
 			//print columns
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 
+				//print left border
 				Console.Write("|");
 
 				//print rows
@@ -57,14 +60,16 @@ namespace GolWorld {
 					cells[X, Y].Show();
 				}
 
+				//print right border
 				Console.WriteLine("|");
 
 			}
 
+			//print bottom border
 			for(int i = 0; i < WorldSizeX+2; i++) {
 				Console.Write("=");
 			}
-			Console.WriteLine();
+
 		}
 
 
