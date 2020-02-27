@@ -3,13 +3,13 @@
 ---
 
 * ## namespace GolWorld
-	* **Cell**
+	* ### Cell
 		* Cell(X, Y)
 
 		* *public* Show()
 
 
-	* **World**
+	* ### World
 		* World(X, Y)
 
 		* *public* ReviveCell(X, Y, Type)
