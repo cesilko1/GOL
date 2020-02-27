@@ -16,7 +16,7 @@
 
 		* *public* KillCell(X, Y)
 
-		* *public* GetCountOfCells(X, Y, Type)
+		* *public* GetCountOfCells(X, Y)
 
 		* *public* Display()
 

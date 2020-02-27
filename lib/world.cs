@@ -72,17 +72,19 @@ namespace GolWorld {
 
 		}
 
-		//returns the number of cells of the same type nearby
+		//returns the number of cells of the same type in given area
 		public int GetCountOfCells(int x, int y) {
 
+			//number of cells of the same type in given area
 			int  CellCount = 0;
 
-
+			//list area rows
 			for(int Y = y-1; Y <= y+1; Y++) {
 
+				//scan columns in row
 				for(int X = x-1; X <= x+1; X++) {
 
-					//
+					//if cell allive and has the same type of given cell
 					if((cells[X, Y].Alive) && (cells[X, Y].Type.Equals(cells[x, y].Type))) {
 						CellCount++;
 					}
@@ -90,6 +92,7 @@ namespace GolWorld {
 				}
 			}
 
+			//discount given cell
 			return CellCount-1;
 
 		}
