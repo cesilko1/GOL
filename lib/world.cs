@@ -72,6 +72,28 @@ namespace GolWorld {
 
 		}
 
+		//returns the number of cells of the same type nearby
+		public int GetCountOfCells(int x, int y) {
+
+			int  CellCount = 0;
+
+
+			for(int Y = y-1; Y <= y+1; Y++) {
+
+				for(int X = x-1; X <= x+1; X++) {
+
+					//
+					if((cells[X, Y].Alive) && (cells[X, Y].Type.Equals(cells[x, y].Type))) {
+						CellCount++;
+					}
+
+				}
+			}
+
+			return CellCount-1;
+
+		}
+
 
 		//==================== PRIVATE METHODS ====================//
 
