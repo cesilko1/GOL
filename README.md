@@ -6,8 +6,16 @@
 	* **Cell**
 		* Cell(X, Y)
 
-		* Show()
+		* *public* Show()
 
-		* CheckStatus
 
 	* **World**
+		* World(X, Y)
+
+		* *public* ReviveCell(X, Y, Type)
+
+		* *public* KillCell(X, Y)
+
+		* *public* Display()
+
+		* *private* FillCell()
