@@ -83,7 +83,7 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell(X, Y);
+					cells[X, Y] = new Cell();
 				}
 
 			}

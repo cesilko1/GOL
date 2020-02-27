@@ -1,10 +1,10 @@
 # Game of Life
 
----
+
 
 * ## namespace GolWorld
 	* ### Cell
-		* Cell(X, Y)
+		* Cell()
 
 		* *public* Show()
 

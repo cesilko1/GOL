@@ -6,31 +6,21 @@ namespace GolWorld {
 		//==================== ATRIBUTES ====================//
 
 		//status of cell
-		public bool Alive = false;
-
-		//position of cell
-		public int PositionX { get; private set; }
-		public int PositionY { get; private set; }
-
+		public  bool Alive    = false;
 		//characters to represent cell in console
-		public char Type = '#';
-		public char DeadChar { get; private set; } = ' ';
+		public  char Type     = '#';
+		private char DeadChar = ' ';
 
 
 		//==================== CONSTRUCTORS ====================//
 
-		//constructor for cell with position and type
-		public Cell(int PositionX, int PositionY) {
-			this.PositionX = PositionX;
-			this.PositionY = PositionY;
-		}
+		//constructor for cell
+		public Cell() {}
 
-		//constructor for cell with position and char definitions
-		public Cell(int PositionX, int PositionY, char Type, char DeadChar) {
-			this.PositionX = PositionX;
-			this.PositionY = PositionY;
-			this.Type      = Type;
-			this.DeadChar  = DeadChar;
+		//constructor for cell with char definitions and type
+		public Cell(char Type, char DeadChar) {
+			this.Type     = Type;
+			this.DeadChar = DeadChar;
 		}
 
 

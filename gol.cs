@@ -13,8 +13,14 @@ class gol {
 		world.ReviveCell(20, 6, '#');
 		world.ReviveCell(21, 6, '#');
 
-		world.ReviveCell(35, 3, 'X');
-		world.ReviveCell(34, 2, 'X');
+		world.ReviveCell(35, 3, 'O');
+		world.ReviveCell(34, 2, 'O');
+
+		world.Display();
+
+		world.KillCell(20, 6);
+		world.ReviveCell(21, 5, '#');
+		world.ReviveCell(35, 2, 'O');
 
 		world.Display();
 
