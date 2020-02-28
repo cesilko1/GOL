@@ -33,20 +33,9 @@ namespace GolWorld {
 			cells[X, Y].Type  = Type;
 		}
 
-		//revives the cell and set type now
-		public void ReviveCellHard(int X, int Y, char Type) {
-			cells[X, Y].Alive = true;
-			cells[X, Y].Type  = Type;	
-		}
-
 		//kills the cell in next generation
 		public void KillCell(int X, int Y) {
 			cells[X, Y].NextGenAlive = false;
-		}
-
-		//kills the cell now
-		public void KillCellHard(int X, int Y) {
-			cells[X, Y].Alive = false;
 		}
 
 		//displays world in console
@@ -110,32 +99,6 @@ namespace GolWorld {
 			}
 
 			return CellCount;
-
-		}
-
-		//check if the cell will alive or die
-		public void NextGen() {
-
-			for(int Y = 0; Y < this.WorldSizeY; Y++) {
-
-				for(int X = 0; X < this.WorldSizeX; X++) {
-
-
-
-					int CellAround = GetCountOfCells(X, Y);
-
-					if(Rules.AliveRule(CellAround) == true) {
-						ReviveCell(X, Y, '#');
-					}
-					else {
-						KillCell(X, Y);
-					}
-
-					cells[X, Y].NextGen();
-
-				}
-
-			}
 
 		}
 

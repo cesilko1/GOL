@@ -6,11 +6,11 @@ namespace GolWorld {
 		//==================== ATRIBUTES ====================//
 
 		//status of cell
-		public  bool Alive    = false;
+		public  bool Alive        = false;
 		public  bool NextGenAlive = false;
 		//characters to represent cell in console
-		public  char Type     = '#';
-		private char DeadChar = ' ';
+		public  char Type         = '#';
+		private char DeadChar     = ' ';
 
 
 		//==================== CONSTRUCTORS ====================//
