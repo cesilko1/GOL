@@ -8,21 +8,21 @@ class gol {
 		Console.CursorVisible = false;
 		
 		//World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
-		World world = new World(70, 20);
+		World world = new World(20, 6);
 
-		world.ReviveCell(20, 5, '#');
-		world.ReviveCell(20, 6, '#');
-		world.ReviveCell(21, 6, 'O');
-		world.ReviveCell(21, 7, '#');
-		world.ReviveCell(20, 7, 'O');
-		world.ReviveCell(22, 5, 'O');
+		world.ReviveCell(10, 3, '#');
+		world.ReviveCell(11, 3, '#');
+		world.ReviveCell(12, 3, '#');
+		world.ReviveCell(12, 2, '#');
 
 		world.Display();
 
+		
+
 		Console.WriteLine();
 
-		Console.Write(world.GetCountOfCells(21, 6));
-
+		Console.WriteLine(world.GetCountOfCells(11, 2));
+		
 
 		Console.CursorVisible = true;
 

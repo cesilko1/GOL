@@ -7,6 +7,7 @@ namespace GolWorld {
 
 		//status of cell
 		public  bool Alive    = false;
+		public  bool NextGenAlive = false;
 		//characters to represent cell in console
 		public  char Type     = '#';
 		private char DeadChar = ' ';
@@ -29,7 +30,7 @@ namespace GolWorld {
 		//returns console char
 		public void Show() {
 
-			if(Alive) {
+			if(NextGenAlive) {
 				Console.Write(Type);
 			}
 			else {
@@ -38,6 +39,10 @@ namespace GolWorld {
 
 		}
 
+
+		public void NextGen() {
+			Alive = NextGenAlive;
+		}
 
 
 

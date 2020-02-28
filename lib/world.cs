@@ -27,14 +27,25 @@ namespace GolWorld {
 
 		//==================== METHODS ====================//
 
-		//revives the cell and set type
+		//revives the cell and set type in next generation
 		public void ReviveCell(int X, int Y, char Type) {
-			cells[X, Y].Alive = true;
+			cells[X, Y].NextGenAlive = true;
 			cells[X, Y].Type  = Type;
 		}
 
-		//kills the cell
+		//revives the cell and set type now
+		public void ReviveCellHard(int X, int Y, char Type) {
+			cells[X, Y].Alive = true;
+			cells[X, Y].Type  = Type;	
+		}
+
+		//kills the cell in next generation
 		public void KillCell(int X, int Y) {
+			cells[X, Y].NextGenAlive = false;
+		}
+
+		//kills the cell now
+		public void KillCellHard(int X, int Y) {
 			cells[X, Y].Alive = false;
 		}
 
@@ -84,16 +95,47 @@ namespace GolWorld {
 				//scan columns in row
 				for(int X = x-1; X <= x+1; X++) {
 
-					//if cell allive and has the same type of given cell
-					if((cells[X, Y].Alive) && (cells[X, Y].Type.Equals(cells[x, y].Type))) {
-						CellCount++;
+					//using try-catch because the coordinates may be out of the world
+					try {
+
+						//if cell allive, has the same type of cell and its not cell on given coordinates
+						if( (cells[X, Y].Alive) ) {
+							CellCount++;
+						}
+
 					}
+					catch {}
 
 				}
 			}
 
-			//discount given cell
-			return CellCount-1;
+			return CellCount;
+
+		}
+
+		//check if the cell will alive or die
+		public void NextGen() {
+
+			for(int Y = 0; Y < this.WorldSizeY; Y++) {
+
+				for(int X = 0; X < this.WorldSizeX; X++) {
+
+
+
+					int CellAround = GetCountOfCells(X, Y);
+
+					if(Rules.AliveRule(CellAround) == true) {
+						ReviveCell(X, Y, '#');
+					}
+					else {
+						KillCell(X, Y);
+					}
+
+					cells[X, Y].NextGen();
+
+				}
+
+			}
 
 		}
 
