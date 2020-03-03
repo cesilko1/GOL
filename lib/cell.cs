@@ -9,14 +9,16 @@ namespace GolWorld {
 		public  bool Alive        = false;
 		public  bool NextGenAlive = false;
 		//characters to represent cell in console
-		public  char Type         = '#';
+		public  char Type;
 		private char DeadChar     = ' ';
 
 
 		//==================== CONSTRUCTORS ====================//
 
 		//constructor for cell
-		public Cell() {}
+		public Cell(char Type) {
+			this.Type = Type;
+		}
 
 		//constructor for cell with char definitions and type
 		public Cell(char Type, char DeadChar) {

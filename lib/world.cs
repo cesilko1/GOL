@@ -12,14 +12,17 @@ namespace GolWorld {
 		//2D array with cells
 		private Cell[,] cells;
 
+		private char[] availableTypes;
+
 
 		//==================== CONSTRUCTORS ====================//
 
 		//assign dimensions
-		public World(int WorldSizeX, int WorldSizeY) {
-			this.WorldSizeX = WorldSizeX;
-			this.WorldSizeY = WorldSizeY;
-			this.cells = new Cell[WorldSizeX, WorldSizeY];
+		public World(int WorldSizeX, int WorldSizeY, char[] types) {
+			this.WorldSizeX     = WorldSizeX;
+			this.WorldSizeY     = WorldSizeY;
+			this.availableTypes = types;
+			this.cells          = new Cell[WorldSizeX, WorldSizeY];
 
 			FillCell();
 		}
@@ -29,8 +32,15 @@ namespace GolWorld {
 
 		//revives the cell and set type in next generation
 		public void ReviveCell(int X, int Y, char Type) {
-			cells[X, Y].NextGenAlive = true;
-			cells[X, Y].Type  = Type;
+
+			foreach(char typeChar in availableTypes) {
+
+				if(typeChar.Equals(Type)) {
+					cells[X, Y].NextGenAlive = true;
+					cells[X, Y].Type         = Type;
+				}
+
+			}
 		}
 
 		//kills the cell in next generation
@@ -113,7 +123,7 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell();
+					cells[X, Y] = new Cell('#', ' ');
 				}
 
 			}
