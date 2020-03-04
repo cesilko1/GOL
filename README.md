@@ -4,31 +4,29 @@
 
 * ## namespace GolWorld
 	* ### Cell
-		* Cell()
+		* Cell(*char* Type)
 
-		* *public* Show()
+		* Cell(*char* Type, *char* DeadChar)
 
-		* *public* NextGen()
+		* *public void* Show()
+
+		* *public void* NextGen()
 
 
 	* ### World
-		* World(X, Y)
+		* World(*int* X, *int* Y, *char[]* availableTypes)
 
-		* *public* ReviveCell(X, Y, Type)
+		* *public void* ReviveCell(*int* X, *int* Y, *char* Type)
 
-		* *public* ReviveCellHard(X, Y, Type)
+		* *public void* KillCell(*int* X, *int* Y)
 
-		* *public* KillCell(X, Y)
+		* *public int[]* GetCountOfCells(*int* X, *int* Y)
 
-		* *public* KillCellHard(X, Y)
+		* *public void* NextGen()
 
-		* *public* GetCountOfCells(X, Y)
+		* *public void* Display()
 
-		* *public* NextGen()
-
-		* *public* Display()
-
-		* *private* FillCell()
+		* *private void* FillCell()
 
 	* ### Rules
-		* *public static* AliveRule(CellsAround)
+		* *public static* AliveRule(*int* CellsAround)

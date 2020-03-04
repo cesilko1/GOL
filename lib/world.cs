@@ -17,7 +17,7 @@ namespace GolWorld {
 
 		//==================== CONSTRUCTORS ====================//
 
-		//assign dimensions
+		//assign dimensions and available types of cells
 		public World(int WorldSizeX, int WorldSizeY, char[] types) {
 			this.WorldSizeX     = WorldSizeX;
 			this.WorldSizeY     = WorldSizeY;
@@ -82,30 +82,48 @@ namespace GolWorld {
 
 		}
 
+		//next generation of cells
+		public void NextGen() {
+
+			//make new generation of cells
+			for(int Y = 0; Y < WorldSizeY; Y++) {
+				for(int X = 0; X < WorldSizeX; X++) {
+					cells[X, Y].NextGen();
+				}
+			}
+		}
+
 		//returns the number of cells of the same type in given area
-		public int GetCountOfCells(int x, int y) {
+		public int[] GetCountOfCells(int x, int y) {
 
 			//number of cells of the same type in given area
-			int  CellCount = 0;
+			int[] CellCount = new int[availableTypes.Length];
 
-			//list area rows
-			for(int Y = y-1; Y <= y+1; Y++) {
+			//list of possible characters
+			for(int i = 0; i < availableTypes.Length; i++) {
 
-				//scan columns in row
-				for(int X = x-1; X <= x+1; X++) {
+				//list area rows
+				for(int Y = y-1; Y <= y+1; Y++) {
 
-					//using try-catch because the coordinates may be out of the world
-					try {
+					//scan columns in row
+					for(int X = x-1; X <= x+1; X++) {
 
-						//if cell allive, has the same type of cell and its not cell on given coordinates
-						if( (cells[X, Y].Alive) ) {
-							CellCount++;
+						//using try-catch because the coordinates may be out of the world
+						try {
+
+							//if cell allive, has the same type of cell and its not cell on given coordinates
+							if( (cells[X, Y].Alive) && (cells[X, Y].Type.Equals(availableTypes[i])) ) {
+								CellCount[i]++;
+							}
+
 						}
+						catch {}
 
 					}
-					catch {}
 
 				}
+
+
 			}
 
 			return CellCount;
@@ -123,7 +141,7 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell('#', ' ');
+					cells[X, Y] = new Cell('#', '.');
 				}
 
 			}

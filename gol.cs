@@ -19,13 +19,15 @@ class gol {
 		world.ReviveCell(12, 3, '#');
 		world.ReviveCell(12, 2, '#');
 
+		world.NextGen();
+
 		world.Display();
 
 		
 
 		Console.WriteLine();
 
-		Console.WriteLine(world.GetCountOfCells(11, 2));
+		Console.WriteLine(world.GetCountOfCells(11, 2)[1]);
 		
 
 		Console.CursorVisible = true;

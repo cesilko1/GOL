@@ -32,7 +32,7 @@ namespace GolWorld {
 		//returns console char
 		public void Show() {
 
-			if(NextGenAlive) {
+			if(Alive) {
 				Console.Write(Type);
 			}
 			else {
