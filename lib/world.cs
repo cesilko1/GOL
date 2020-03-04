@@ -85,6 +85,20 @@ namespace GolWorld {
 		//next generation of cells
 		public void NextGen() {
 
+			//check if the cell will die or survive
+			for(int Y = 0; Y < WorldSizeY; Y++) {
+				for(int X = 0; X < WorldSizeX; X++) {
+					
+					if( Rules.AliveRule(GetCountOfCells(X, Y)) ) {
+						ReviveCell(X, Y, availableTypes[Rules.NextGenChar]);
+					}
+					else {
+						KillCell(X, Y);
+					}
+
+				}
+			}
+
 			//make new generation of cells
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 				for(int X = 0; X < WorldSizeX; X++) {

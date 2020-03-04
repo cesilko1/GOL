@@ -4,20 +4,13 @@ namespace GolWorld {
 
 	public class Rules {
 
+		//index of char in next generation
+		public static int NextGenChar = 0;
+
 		//here is defined rules
-		public static bool AliveRule(int CellsAround) {
+		public static bool AliveRule(int[] CellsAround) {
 
-			if(CellsAround == 2 || CellsAround == 3) {
-				return true;
-			}
-
-			else if(CellsAround <= 2) {
-				return false;
-			}
-
-			else {
-				return false;
-			}
+			return true;
 
 		}
 

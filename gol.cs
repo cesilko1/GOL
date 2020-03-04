@@ -24,6 +24,8 @@ class gol {
 
 		world.ReviveCell(1, 0, '#');
 
+		world.Display();
+
 		world.NextGen();
 
 		world.Display();
