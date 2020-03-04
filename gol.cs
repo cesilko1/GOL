@@ -18,6 +18,11 @@ class gol {
 		world.ReviveCell(11, 3, '#');
 		world.ReviveCell(12, 3, '#');
 		world.ReviveCell(12, 2, '#');
+		world.ReviveCell(10, 2, 'O');
+		world.ReviveCell(13, 2, 'O');
+		world.ReviveCell(11, 1, 'O');
+
+		world.ReviveCell(1, 0, '#');
 
 		world.NextGen();
 
@@ -27,7 +32,7 @@ class gol {
 
 		Console.WriteLine();
 
-		Console.WriteLine(world.GetCountOfCells(11, 2)[1]);
+		Console.WriteLine(world.GetCountOfCells(11, 2)[0]);
 		
 
 		Console.CursorVisible = true;

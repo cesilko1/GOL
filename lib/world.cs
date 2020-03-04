@@ -112,7 +112,7 @@ namespace GolWorld {
 						try {
 
 							//if cell allive, has the same type of cell and its not cell on given coordinates
-							if( (cells[X, Y].Alive) && (cells[X, Y].Type.Equals(availableTypes[i])) ) {
+							if( (cells[X, Y].Alive) && (cells[X, Y].Type.Equals(availableTypes[i])) && ((X != x) || (Y != y)) ) {
 								CellCount[i]++;
 							}
 
@@ -141,7 +141,7 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell('#', '.');
+					cells[X, Y] = new Cell('.');
 				}
 
 			}

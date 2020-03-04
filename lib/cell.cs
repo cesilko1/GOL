@@ -15,12 +15,15 @@ namespace GolWorld {
 
 		//==================== CONSTRUCTORS ====================//
 
-		//constructor for cell
-		public Cell(char Type) {
-			this.Type = Type;
+		//only constructor
+		public Cell() {}
+
+		//constructor for cell with definition of dead char
+		public Cell(char DeadChar) {
+			this.DeadChar = DeadChar;
 		}
 
-		//constructor for cell with char definitions and type
+		//constructor for cell with dead char and type char
 		public Cell(char Type, char DeadChar) {
 			this.Type     = Type;
 			this.DeadChar = DeadChar;

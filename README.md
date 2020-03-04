@@ -4,7 +4,7 @@
 
 * ## namespace GolWorld
 	* ### Cell
-		* Cell(*char* Type)
+		* Cell(*char* DeadChar)
 
 		* Cell(*char* Type, *char* DeadChar)
 
