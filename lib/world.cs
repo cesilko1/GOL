@@ -13,17 +13,13 @@ namespace GolWorld {
 		//2D array with cells
 		private Cell[,] cells;
 
-		//char array with available type chars
-		private char[] availableTypes;
-
 
 		//==================== CONSTRUCTORS ====================//
 
 		//assign dimensions and available types of cells
-		public World(int WorldSizeX, int WorldSizeY, char[] types) {
+		public World(int WorldSizeX, int WorldSizeY) {
 			this.WorldSizeX     = WorldSizeX;
 			this.WorldSizeY     = WorldSizeY;
-			this.availableTypes = types;
 			this.cells          = new Cell[WorldSizeX, WorldSizeY];
 
 			FillCell();
@@ -33,16 +29,8 @@ namespace GolWorld {
 		//==================== METHODS ====================//
 
 		//revives the cell and set type in next generation
-		public void ReviveCell(int X, int Y, char Type) {
-
-			foreach(char typeChar in availableTypes) {
-
-				if(typeChar.Equals(Type)) {
-					cells[X, Y].NextGenAlive = true;
-					cells[X, Y].Type         = Type;
-				}
-
-			}
+		public void ReviveCell(int X, int Y) {
+			cells[X, Y].NextGenAlive = true;
 		}
 
 		//kills the cell in next generation
@@ -54,6 +42,8 @@ namespace GolWorld {
 		public void Display() {
 
 			Console.Clear();
+
+
 
 			//print top border
 			for(int i = 0; i < WorldSizeX+2; i++) {
@@ -92,10 +82,9 @@ namespace GolWorld {
 
 				for(int X = 0; X < WorldSizeX; X++) {
 
-					
-					if( Rules.AliveRule(GetCountOfCells(X, Y), cells[X, Y].Alive, Array.IndexOf(availableTypes, cells[X, Y].Type)) ) {
-						//Console.WriteLine(Rules.NextGenChar);
-						ReviveCell(X, Y, availableTypes[Rules.NextGenChar]);
+					//check if the cell will survive or die
+					if( Rules.AliveRule(GetCountOfCells(X, Y), cells[X, Y].Alive) ) {
+						ReviveCell(X, Y);
 					}
 					else {
 						KillCell(X, Y);
@@ -118,35 +107,30 @@ namespace GolWorld {
 		}
 
 		//returns the number of cells of the same type in given area
-		public int[] GetCountOfCells(int x, int y) {
+		public int GetCountOfCells(int x, int y) {
 
 			//number of cells of the same type in given area
-			int[] CellCount = new int[availableTypes.Length];
+			int CellCount = 0;
 
-			//list of possible characters
-			for(int i = 0; i < availableTypes.Length; i++) {
 
-				//list area rows
-				for(int Y = y-1; Y <= y+1; Y++) {
+			//list area rows
+			for(int Y = y-1; Y <= y+1; Y++) {
 
-					//scan columns in row
-					for(int X = x-1; X <= x+1; X++) {
+				//scan columns in row
+				for(int X = x-1; X <= x+1; X++) {
 
-						//using try-catch because the coordinates may be out of the world
-						try {
+					//using try-catch because the coordinates may be out of the world
+					try {
 
-							//if cell allive, has the same type of cell and its not cell on given coordinates
-							if( (cells[X, Y].Alive) && (cells[X, Y].Type.Equals(availableTypes[i])) && ((X != x) || (Y != y)) ) {
-								CellCount[i]++;
-							}
-
+						//if cell allive, has the same type of cell and its not cell on given coordinates
+						if( (cells[X, Y].Alive) && ((X != x) || (Y != y)) ) {
+							CellCount++;
 						}
-						catch {}
 
 					}
+					catch {}
 
 				}
-
 
 			}
 

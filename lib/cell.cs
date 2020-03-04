@@ -9,8 +9,8 @@ namespace GolWorld {
 		public  bool Alive        = false;
 		public  bool NextGenAlive = false;
 		//characters to represent cell in console
-		public  char Type;
-		private char DeadChar     = ' ';
+		public  char Type     = 'O';
+		private char DeadChar = ' ';
 
 
 		//==================== CONSTRUCTORS ====================//
