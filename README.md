@@ -1,6 +1,6 @@
 # Game of Life
 
-
+v 0.1.0
 
 * ## namespace GolWorld
 	* ### Cell

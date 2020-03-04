@@ -18,11 +18,6 @@ namespace GolWorld {
 		//only constructor
 		public Cell() {}
 
-		//constructor for cell with definition of dead char
-		public Cell(char DeadChar) {
-			this.DeadChar = DeadChar;
-		}
-
 		//constructor for cell with dead char and type char
 		public Cell(char Type, char DeadChar) {
 			this.Type     = Type;
@@ -44,7 +39,7 @@ namespace GolWorld {
 
 		}
 
-
+		//set next generation of cell
 		public void NextGen() {
 			Alive = NextGenAlive;
 		}
