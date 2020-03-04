@@ -12,29 +12,24 @@ class gol {
 		types[1] = 'O';
 		
 		//World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
-		World world = new World(20, 6, types);
+		World world = new World(3, 3, types);
 
-		world.ReviveCell(10, 3, '#');
-		world.ReviveCell(11, 3, '#');
-		world.ReviveCell(12, 3, '#');
-		world.ReviveCell(12, 2, '#');
-		world.ReviveCell(10, 2, 'O');
-		world.ReviveCell(13, 2, 'O');
-		world.ReviveCell(11, 1, 'O');
+		world.ReviveCell(0, 1, '#');
+		world.ReviveCell(1, 1, '#');
+		world.ReviveCell(2, 1, '#');
 
-		world.ReviveCell(1, 0, '#');
-
-		world.Display();
-
-		world.NextGen();
+		world.CellsNextGen();
 
 		world.Display();
 
 		
+		for(int i = 0; i < 1; i++) {
 
-		Console.WriteLine();
+			world.NextGen();
 
-		Console.WriteLine(world.GetCountOfCells(11, 2)[0]);
+			world.Display();
+		}
+		
 		
 
 		Console.CursorVisible = true;

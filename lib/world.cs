@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace GolWorld {
 
@@ -12,6 +13,7 @@ namespace GolWorld {
 		//2D array with cells
 		private Cell[,] cells;
 
+		//char array with available type chars
 		private char[] availableTypes;
 
 
@@ -87,9 +89,12 @@ namespace GolWorld {
 
 			//check if the cell will die or survive
 			for(int Y = 0; Y < WorldSizeY; Y++) {
+
 				for(int X = 0; X < WorldSizeX; X++) {
+
 					
-					if( Rules.AliveRule(GetCountOfCells(X, Y)) ) {
+					if( Rules.AliveRule(GetCountOfCells(X, Y), cells[X, Y].Alive, Array.IndexOf(availableTypes, cells[X, Y].Type)) ) {
+						//Console.WriteLine(Rules.NextGenChar);
 						ReviveCell(X, Y, availableTypes[Rules.NextGenChar]);
 					}
 					else {
@@ -99,7 +104,12 @@ namespace GolWorld {
 				}
 			}
 
-			//make new generation of cells
+			CellsNextGen();
+
+		}
+
+		//make new generation of cells
+		public void CellsNextGen() {
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 				for(int X = 0; X < WorldSizeX; X++) {
 					cells[X, Y].NextGen();
@@ -155,7 +165,7 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell('.');
+					cells[X, Y] = new Cell();
 				}
 
 			}

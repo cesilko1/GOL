@@ -24,6 +24,8 @@
 
 		* *public void* NextGen()
 
+		* *public void* CellsNextGen()
+
 		* *public void* Display()
 
 		* *private void* FillCell()
