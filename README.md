@@ -6,8 +6,6 @@ v 0.1.0
 	* ### Cell
 		* Cell()
 
-		* Cell(*char* DeadChar)
-
 		* Cell(*char* Type, *char* DeadChar)
 
 		* *public void* Show()
@@ -33,4 +31,4 @@ v 0.1.0
 		* *private void* FillCell()
 
 	* ### Rules
-		* *public static* AliveRule(*int* CellsAround)
+		* *public static bool* AliveRule(*int* CellsAround)
