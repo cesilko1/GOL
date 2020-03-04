@@ -29,4 +29,4 @@
 		* *private void* FillCell()
 
 	* ### Rules
-		* *public static* AliveRule(*int* CellsAround)
+		* *public static* AliveRule(*int[]* CellsAround)
