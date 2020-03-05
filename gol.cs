@@ -9,7 +9,7 @@ class gol {
 		
 		Console.CursorVisible = false;
 		
-		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
+		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3, true);
 		//World world = new World(3, 3);
 
 		world.ReviveCell(20,10);

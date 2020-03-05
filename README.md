@@ -16,6 +16,8 @@ v 0.1.1
 	* ### World
 		* World(*int* X, *int* Y)
 
+		* World(*int* X, *int* Y, *bool* Colored)
+
 		* *public void* ReviveCell(*int* X, *int* Y)
 
 		* *public void* KillCell(*int* X, *int* Y)
@@ -29,6 +31,10 @@ v 0.1.1
 		* *public void* Display()
 
 		* *private void* FillCell()
+
+		* *private void* FrameHorizontal()
+
+		* *private void* FrameVertical()
 
 	* ### Rules
 		* *public static bool* AliveRule(*int* CellsAround)

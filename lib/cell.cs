@@ -8,8 +8,9 @@ namespace GolWorld {
 		//status of cell
 		public  bool Alive        = false;
 		public  bool NextGenAlive = false;
+
 		//characters to represent cell in console
-		public  char Type     = ' ';
+		public  char Type     = 'O';
 		private char DeadChar = ' ';
 
 
@@ -28,12 +29,18 @@ namespace GolWorld {
 		//==================== METHODS ====================//
 
 		//returns console char
-		public void Show() {
+		public void Show(bool Colored) {
 
 			if(Alive) {
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.Write(Type);
-				Console.ResetColor();
+
+				if(!Colored) {
+					Console.Write(Type);
+				}
+				else {
+					Console.BackgroundColor = ConsoleColor.Red;
+					Console.Write(' ');
+					Console.ResetColor();
+				}
 			}
 			else {
 				Console.Write(DeadChar);

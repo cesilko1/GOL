@@ -13,14 +13,26 @@ namespace GolWorld {
 		//2D array with cells
 		private Cell[,] cells;
 
+		//console output type
+		private bool Colored = false;
+
 
 		//==================== CONSTRUCTORS ====================//
 
 		//assign dimensions and available types of cells
 		public World(int WorldSizeX, int WorldSizeY) {
-			this.WorldSizeX     = WorldSizeX;
-			this.WorldSizeY     = WorldSizeY;
-			this.cells          = new Cell[WorldSizeX, WorldSizeY];
+			this.WorldSizeX = WorldSizeX;
+			this.WorldSizeY = WorldSizeY;
+			this.cells      = new Cell[WorldSizeX, WorldSizeY];
+
+			FillCell();
+		}
+
+		public World(int WorldSizeX, int WorldSizeY, bool Colored) {
+			this.WorldSizeX = WorldSizeX;
+			this.WorldSizeY = WorldSizeY;
+			this.Colored    = Colored;
+			this.cells      = new Cell[WorldSizeX, WorldSizeY];
 
 			FillCell();
 		}
@@ -52,38 +64,29 @@ namespace GolWorld {
 
 
 			//print top border
-			for(int i = 0; i < WorldSizeX+2; i++) {
-				Console.BackgroundColor = ConsoleColor.Blue;
-				Console.Write(" ");
-				Console.ResetColor();
-			}
+			FrameHorizontal();
+			Console.WriteLine();
+			
 
 			//print columns
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 
 				//print left border
-				Console.BackgroundColor = ConsoleColor.Blue;
-				Console.Write(" ");
-				Console.ResetColor();
+				FrameVertical();
+				
 
 				//print rows
 				for(int X = 0; X < WorldSizeX; X++) {
-					cells[X, Y].Show();
+					cells[X, Y].Show(Colored);
 				}
 
 				//print right border
-				Console.BackgroundColor = ConsoleColor.Blue;
-				Console.Write(" ");
-				Console.ResetColor();
+				FrameVertical();
 
 			}
 
 			//print bottom border
-			for(int i = 0; i < WorldSizeX+2; i++) {
-				Console.BackgroundColor = ConsoleColor.Blue;
-				Console.Write(" ");
-				Console.ResetColor();
-			}
+			FrameHorizontal();
 
 		}
 
@@ -162,11 +165,39 @@ namespace GolWorld {
 
 				//fill columns
 				for(int X = 0; X < this.WorldSizeX; X++) {
-					cells[X, Y] = new Cell();
+					cells[X, Y] = new Cell('O', ' ');
 				}
 
 			}
 
+		}
+
+		//print colored or ASCI horizontal frame
+		private void FrameHorizontal() {
+			if(Colored) {
+				for(int i = 0; i < WorldSizeX+2; i++) {
+					Console.BackgroundColor = ConsoleColor.Blue;
+					Console.Write(" ");
+					Console.ResetColor();
+				}
+			}
+			else {
+				for(int i = 0; i < WorldSizeX+2; i++) {
+					Console.Write("=");
+				}	
+			}
+		}
+
+		//print colored or ASCI vertical frame
+		private void FrameVertical() {
+			if(Colored) {
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Write(" ");
+				Console.ResetColor();
+			}
+			else {
+				Console.Write("|");
+			}
 		}
 
 
