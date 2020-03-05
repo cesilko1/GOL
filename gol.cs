@@ -11,37 +11,12 @@ class gol {
 		
 		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
 
-		world.ReviveCell(20,10);
-		world.ReviveCell(21,10);
-		world.ReviveCell(22,10);
-		world.ReviveCell(22,9);
-		world.ReviveCell(21,9);
-		world.ReviveCell(20,8);
-		world.ReviveCell(19,10);
-		world.ReviveCell(19,8);
-		world.ReviveCell(23,11);
-		world.ReviveCell(23,7);
-
-
-		world.ReviveCell(30,15);
-		world.ReviveCell(31,15);
-		world.ReviveCell(32,15);
-		world.ReviveCell(29,16);
-		world.ReviveCell(29,14);
-		world.ReviveCell(33,14);
-		world.ReviveCell(33,16);
-
 		world.OpenCursor();
-
-/*
-		world.CellsNextGen();
-
-		world.Display();
 
 		Thread.Sleep(delay);
 
 		
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 100; i++) {
 
 			world.NextGen();
 
@@ -52,10 +27,7 @@ class gol {
 			Console.Write("generation: " + genNum);
 
 			Thread.Sleep(delay);
-		}
-		
-*/
-		world.Display();		
+		}		
 
 		Console.CursorVisible = true;
 	}

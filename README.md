@@ -1,6 +1,14 @@
 # Game of Life
 
-v 0.2.1
+v 1.0.0
+
+---
+
+run `app.exe`
+
+You shlould see cursor (X) which you can move by pressing arrow keys. Press `c` to revive cell or `x` to kill cell. Then you can press enter for next 100 generation.
+
+---
 
 * ## namespace GolWorld
 	* ### Cell

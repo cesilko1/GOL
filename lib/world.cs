@@ -175,6 +175,8 @@ namespace GolWorld {
 
 			ConsoleKeyInfo btn;
 
+			CellsNextGen();
+
 			Display();
 
 			do {
@@ -193,8 +195,11 @@ namespace GolWorld {
 					case ConsoleKey.RightArrow:
 						cursor.MoveRight();
 						break;
-					case ConsoleKey.Enter:
+					case ConsoleKey.C:
 						ReviveCell(cursor.X, cursor.Y);
+						break;
+					case ConsoleKey.X:
+						KillCell(cursor.X, cursor.Y);
 						break;
 					default:
 						break;
@@ -202,7 +207,7 @@ namespace GolWorld {
 				CellsNextGen();
 				Display();
 			}
-			while(btn.Key != ConsoleKey.Escape);
+			while(btn.Key != ConsoleKey.Enter);
 
 			CursorActive = false;
 
