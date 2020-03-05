@@ -30,12 +30,18 @@ namespace GolWorld {
 
 		//revives the cell and set type in next generation
 		public void ReviveCell(int X, int Y) {
-			cells[X, Y].NextGenAlive = true;
+			try {
+				cells[X, Y].NextGenAlive = true;
+			}
+			catch {}
 		}
 
 		//kills the cell in next generation
 		public void KillCell(int X, int Y) {
-			cells[X, Y].NextGenAlive = false;
+			try {
+				cells[X, Y].NextGenAlive = false;
+			}
+			catch {}
 		}
 
 		//displays world in console
@@ -47,15 +53,18 @@ namespace GolWorld {
 
 			//print top border
 			for(int i = 0; i < WorldSizeX+2; i++) {
-				Console.Write("=");
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Write(" ");
+				Console.ResetColor();
 			}
-			Console.WriteLine();
 
 			//print columns
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 
 				//print left border
-				Console.Write("|");
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Write(" ");
+				Console.ResetColor();
 
 				//print rows
 				for(int X = 0; X < WorldSizeX; X++) {
@@ -63,13 +72,17 @@ namespace GolWorld {
 				}
 
 				//print right border
-				Console.WriteLine("|");
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Write(" ");
+				Console.ResetColor();
 
 			}
 
 			//print bottom border
 			for(int i = 0; i < WorldSizeX+2; i++) {
-				Console.Write("=");
+				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.Write(" ");
+				Console.ResetColor();
 			}
 
 		}

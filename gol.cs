@@ -5,7 +5,7 @@ using System.Threading;
 class gol {
 
 	static void Main(string[] args) {
-		int delay = 150;
+		int delay = 100;
 		
 		Console.CursorVisible = false;
 		
@@ -24,19 +24,13 @@ class gol {
 		world.ReviveCell(23,7);
 
 
-		world.ReviveCell(40,20);
-		world.ReviveCell(41,21);
-		world.ReviveCell(42,22);
-		world.ReviveCell(40,22);
-		world.ReviveCell(42,20);
-		world.ReviveCell(39,21);
-		world.ReviveCell(43,21);
-		world.ReviveCell(41,19);
-		world.ReviveCell(41,23);
-		world.ReviveCell(39,19);
-		world.ReviveCell(43,19);
-		world.ReviveCell(39,23);
-		world.ReviveCell(43,23);
+		world.ReviveCell(30,15);
+		world.ReviveCell(31,15);
+		world.ReviveCell(32,15);
+		world.ReviveCell(29,16);
+		world.ReviveCell(29,14);
+		world.ReviveCell(33,14);
+		world.ReviveCell(33,16);
 
 
 		world.CellsNextGen();
@@ -46,7 +40,7 @@ class gol {
 		Thread.Sleep(delay);
 
 		
-		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < 50; i++) {
 
 			world.NextGen();
 
@@ -62,6 +56,7 @@ class gol {
 		
 
 		Console.CursorVisible = true;
+		Console.ReadKey();
 		Console.WriteLine();
 	}
 

@@ -9,7 +9,7 @@ namespace GolWorld {
 		public  bool Alive        = false;
 		public  bool NextGenAlive = false;
 		//characters to represent cell in console
-		public  char Type     = 'O';
+		public  char Type     = ' ';
 		private char DeadChar = ' ';
 
 
@@ -31,7 +31,9 @@ namespace GolWorld {
 		public void Show() {
 
 			if(Alive) {
+				Console.BackgroundColor = ConsoleColor.Red;
 				Console.Write(Type);
+				Console.ResetColor();
 			}
 			else {
 				Console.Write(DeadChar);
