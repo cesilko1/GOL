@@ -19,7 +19,7 @@ namespace GolWorld {
 
 		//==================== CONSTRUCTORS ====================//
 
-		//assign dimensions and available types of cells
+		//assign dimensions
 		public World(int WorldSizeX, int WorldSizeY) {
 			this.WorldSizeX = WorldSizeX;
 			this.WorldSizeY = WorldSizeY;
@@ -28,6 +28,7 @@ namespace GolWorld {
 			FillCell();
 		}
 
+		//assign dimensions and console output type
 		public World(int WorldSizeX, int WorldSizeY, bool Colored) {
 			this.WorldSizeX = WorldSizeX;
 			this.WorldSizeY = WorldSizeY;
@@ -61,23 +62,22 @@ namespace GolWorld {
 
 			Console.Clear();
 
-
-
 			//print top border
 			FrameHorizontal();
-			Console.WriteLine();
-			
+			Console.WriteLine();			
 
 			//print columns
 			for(int Y = 0; Y < WorldSizeY; Y++) {
 
 				//print left border
 				FrameVertical();
-				
 
 				//print rows
 				for(int X = 0; X < WorldSizeX; X++) {
+					
+					//print cell char
 					cells[X, Y].Show(Colored);
+
 				}
 
 				//print right border
@@ -151,7 +151,6 @@ namespace GolWorld {
 			}
 
 			return CellCount;
-
 		}
 
 
@@ -174,27 +173,35 @@ namespace GolWorld {
 
 		//print colored or ASCI horizontal frame
 		private void FrameHorizontal() {
+
 			if(Colored) {
+
 				for(int i = 0; i < WorldSizeX+2; i++) {
 					Console.BackgroundColor = ConsoleColor.Blue;
 					Console.Write(" ");
 					Console.ResetColor();
 				}
+
 			}
+
 			else {
+
 				for(int i = 0; i < WorldSizeX+2; i++) {
 					Console.Write("=");
-				}	
+				}
+
 			}
 		}
 
 		//print colored or ASCI vertical frame
 		private void FrameVertical() {
+
 			if(Colored) {
 				Console.BackgroundColor = ConsoleColor.Blue;
 				Console.Write(" ");
 				Console.ResetColor();
 			}
+
 			else {
 				Console.Write("|");
 			}
