@@ -1,6 +1,6 @@
 # Game of Life
 
-v 0.1.2
+v 0.2.1
 
 * ## namespace GolWorld
 	* ### Cell
@@ -8,9 +8,22 @@ v 0.1.2
 
 		* Cell(*char* Type, *char* DeadChar)
 
-		* *public void* Show()
+		* *public void* Show(*bool* Colored)
 
 		* *public void* NextGen()
+
+	* ### Cursor
+		* Cursor(*int* WorldSizeX, *int* WorldSizeY, *int* X, *int* Y)
+
+		* *public void* Show(*bool* Colored)
+
+		* *public void* MoveRight()
+
+		* *public void* MoveLeft()
+
+		* *public void* MoveUp()
+
+		* *public void* MoveDown()
 
 
 	* ### World

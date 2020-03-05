@@ -31,7 +31,9 @@ class gol {
 		world.ReviveCell(33,14);
 		world.ReviveCell(33,16);
 
+		world.OpenCursor();
 
+/*
 		world.CellsNextGen();
 
 		world.Display();
@@ -52,11 +54,10 @@ class gol {
 			Thread.Sleep(delay);
 		}
 		
-		
+*/
+		world.Display();		
 
 		Console.CursorVisible = true;
-		Console.ReadKey();
-		Console.WriteLine();
 	}
 
 }

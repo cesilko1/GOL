@@ -16,6 +16,11 @@ namespace GolWorld {
 		//console output type
 		private bool Colored = false;
 
+		//activation of cursor
+		private bool CursorActive = true;
+
+		private Cursor cursor;
+
 
 		//==================== CONSTRUCTORS ====================//
 
@@ -24,6 +29,8 @@ namespace GolWorld {
 			this.WorldSizeX = WorldSizeX;
 			this.WorldSizeY = WorldSizeY;
 			this.cells      = new Cell[WorldSizeX, WorldSizeY];
+			this.cursor     = new Cursor(WorldSizeX, WorldSizeY, WorldSizeX/2, WorldSizeY/2);
+
 
 			FillCell();
 		}
@@ -34,6 +41,7 @@ namespace GolWorld {
 			this.WorldSizeY = WorldSizeY;
 			this.Colored    = Colored;
 			this.cells      = new Cell[WorldSizeX, WorldSizeY];
+			this.cursor     = new Cursor(WorldSizeX, WorldSizeY, WorldSizeX/2, WorldSizeY/2);
 
 			FillCell();
 		}
@@ -74,9 +82,16 @@ namespace GolWorld {
 
 				//print rows
 				for(int X = 0; X < WorldSizeX; X++) {
-					
-					//print cell char
-					cells[X, Y].Show(Colored);
+
+
+					if(cursor.X == X && cursor.Y == Y && CursorActive) {
+						cursor.Show(Colored);
+					}
+
+					else {
+						//print cell char
+						cells[X, Y].Show(Colored);
+					}
 
 				}
 
@@ -151,6 +166,46 @@ namespace GolWorld {
 			}
 
 			return CellCount;
+		}
+
+		//opens the cursor
+		public void OpenCursor() {
+
+			CursorActive = true;
+
+			ConsoleKeyInfo btn;
+
+			Display();
+
+			do {
+				btn = Console.ReadKey(true);
+				
+				switch(btn.Key) {
+					case ConsoleKey.UpArrow:
+						cursor.MoveUp();
+						break;
+					case ConsoleKey.DownArrow:
+						cursor.MoveDown();
+						break;
+					case ConsoleKey.LeftArrow:
+						cursor.MoveLeft();
+						break;
+					case ConsoleKey.RightArrow:
+						cursor.MoveRight();
+						break;
+					case ConsoleKey.Enter:
+						ReviveCell(cursor.X, cursor.Y);
+						break;
+					default:
+						break;
+				}
+				CellsNextGen();
+				Display();
+			}
+			while(btn.Key != ConsoleKey.Escape);
+
+			CursorActive = false;
+
 		}
 
 
