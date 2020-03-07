@@ -3,6 +3,7 @@ using System;
 namespace GolWorld {
 
 	public class Cursor {
+		//==================== ATRIBUTES ====================//
 
 		//cursoe position
 		public int X { get; private set; }
@@ -16,6 +17,9 @@ namespace GolWorld {
 		private char CursorChar = 'X';
 
 
+		//==================== CONSTRUCTORS ====================//
+
+		//set first position of cursor and world dimensions
 		public Cursor(int WorldSizeX, int WorldSizeY, int X, int Y) {
 			this.X = X;
 			this.Y = Y;
@@ -25,6 +29,9 @@ namespace GolWorld {
 		}
 
 
+		//==================== METHODS ====================//
+
+		//print cursor or colored block
 		public void Show(bool Colored) {
 			if(!Colored) {
 				Console.Write(CursorChar);
@@ -36,24 +43,28 @@ namespace GolWorld {
 			}
 		}
 
+		//moving right
 		public void MoveRight() {
 			if(X < WorldSizeX-1) {
 				X++;
 			}
 		}
 
+		//moving left
 		public void MoveLeft() {
 			if(X > 0) {
 				X--;
 			}
 		}
 
+		//moving up
 		public void MoveUp() {
 			if(Y > 0) {
 				Y--;
 			}
 		}
 
+		//moving down
 		public void MoveDown() {
 			if(Y < WorldSizeY-1) {
 				Y++;

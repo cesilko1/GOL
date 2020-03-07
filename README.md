@@ -1,12 +1,12 @@
 # Game of Life
 
-v 1.0.0
+v 1.0.1
 
 ---
 
 run `app.exe`
 
-You shlould see cursor (X) which you can move by pressing arrow keys. Press `c` to revive cell or `x` to kill cell. Then you can press enter for next 100 generation.
+You shlould see cursor `X` which you can move by pressing arrow keys. Press `c` to revive cell or `x` to kill cell. Then you can press enter for next 100 generation.
 
 ---
 
@@ -50,6 +50,8 @@ You shlould see cursor (X) which you can move by pressing arrow keys. Press `c` 
 		* *public void* CellsNextGen()
 
 		* *public void* Display()
+
+		* *public void* OpenCursor()
 
 		* *private void* FillCell()
 

@@ -9,7 +9,7 @@ class gol {
 		
 		Console.CursorVisible = false;
 		
-		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
+		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3, false);
 
 		world.OpenCursor();
 

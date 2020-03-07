@@ -1,0 +1,6 @@
+using System;
+
+namespace CliApplication {
+
+
+}

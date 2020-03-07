@@ -83,8 +83,9 @@ namespace GolWorld {
 				//print rows
 				for(int X = 0; X < WorldSizeX; X++) {
 
-
+					//if cursor is active on this position, then show cursor
 					if(cursor.X == X && cursor.Y == Y && CursorActive) {
+						//print cursor char
 						cursor.Show(Colored);
 					}
 
@@ -179,6 +180,8 @@ namespace GolWorld {
 
 			Display();
 
+
+			//reading buttons
 			do {
 				btn = Console.ReadKey(true);
 				
@@ -186,24 +189,32 @@ namespace GolWorld {
 					case ConsoleKey.UpArrow:
 						cursor.MoveUp();
 						break;
+
 					case ConsoleKey.DownArrow:
 						cursor.MoveDown();
 						break;
+
 					case ConsoleKey.LeftArrow:
 						cursor.MoveLeft();
 						break;
+
 					case ConsoleKey.RightArrow:
 						cursor.MoveRight();
 						break;
+
 					case ConsoleKey.C:
 						ReviveCell(cursor.X, cursor.Y);
 						break;
+
 					case ConsoleKey.X:
 						KillCell(cursor.X, cursor.Y);
 						break;
+
 					default:
 						break;
 				}
+
+
 				CellsNextGen();
 				Display();
 			}
