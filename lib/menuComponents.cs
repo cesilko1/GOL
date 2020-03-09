@@ -10,8 +10,8 @@ namespace Menu {
 			this.ButtonName = ButtonName;
 		}
 
-		public void Show() {
-			Console.Write(ButtonName);
+		public string Show() {
+			return ButtonName;
 		}
 	}
 
