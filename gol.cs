@@ -8,8 +8,11 @@ class gol {
 		int delay = 100;
 		
 		Console.CursorVisible = false;
+
+
 		
 		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
+		Console.SetWindowSize(Console.WindowWidth, Console.WindowHeight);
 
 		world.OpenCursor();
 
