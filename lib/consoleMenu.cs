@@ -5,7 +5,7 @@ namespace Menu {
 
 	public class ConsoleMenu {
 
-		private List<object> menuItems = new List<object>();
+		private List<object> MenuItems = new List<object>();
 		private string MenuHeader;
 
  
@@ -19,7 +19,12 @@ namespace Menu {
 
 
 		public void AddItem(object Item) {
-			
+			MenuItems.Add(Item);
+		}
+
+		public void Show() {
+			Console.WriteLine(MenuHeader);
+			Console.WriteLine(MenuItems[0]);
 		}
 
 	}
