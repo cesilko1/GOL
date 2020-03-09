@@ -9,7 +9,7 @@ class gol {
 		
 		Console.CursorVisible = false;
 		
-		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3, false);
+		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
 
 		world.OpenCursor();
 
@@ -27,7 +27,8 @@ class gol {
 			Console.Write("generation: " + genNum);
 
 			Thread.Sleep(delay);
-		}		
+		}
+		Console.WriteLine();
 
 		Console.CursorVisible = true;
 	}
