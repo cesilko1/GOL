@@ -24,7 +24,7 @@ namespace Menu {
 
 		public void Show() {
 			Console.WriteLine(MenuHeader);
-			Console.WriteLine(MenuItems[0].Show());
+			Console.WriteLine(MenuItems[0]);
 		}
 
 	}
