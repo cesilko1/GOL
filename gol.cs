@@ -1,39 +1,51 @@
 using System;
 using GolWorld;
 using System.Threading;
+using Menu;
 
 class gol {
 
 	static void Main(string[] args) {
-		int delay = 100;
-		
-		Console.CursorVisible = false;
+
+		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v-1.1.0");
+
+		menu.AddItem(new Button(" START "));
+		menu.AddItem(new Switcher(" Colors"));
+		menu.AddItem(new Button(" EXIT "));
 
 
-		
-		World world = new World(Console.WindowWidth-2, Console.WindowHeight-3);
-		Console.SetWindowSize(Console.WindowWidth, Console.WindowHeight);
+		if(menu.Display() == 0) {
 
-		world.OpenCursor();
+			int delay = 100;
+			Console.CursorVisible = false;
 
-		Thread.Sleep(delay);
+			World world = new World(Console.WindowWidth-2, Console.WindowHeight-3, (bool)menu.GetData()[1]);
 
-		
-		for(int i = 0; i < 100; i++) {
-
-			world.NextGen();
-
-			world.Display();
-
-			Console.WriteLine();
-			int genNum = i+1;
-			Console.Write("generation: " + genNum);
+			world.OpenCursor();
 
 			Thread.Sleep(delay);
-		}
-		Console.WriteLine();
 
-		Console.CursorVisible = true;
+			
+			for(int i = 0; i < 100; i++) {
+
+				world.NextGen();
+
+				world.Display();
+
+				Console.WriteLine();
+				int genNum = i+1;
+				Console.Write("generation: " + genNum);
+
+				Thread.Sleep(delay);
+			}
+			Console.WriteLine();
+
+			Console.CursorVisible = true;
+
+		}
+		else {
+			Console.WriteLine("Good bye...");
+		}
 	}
 
 }
