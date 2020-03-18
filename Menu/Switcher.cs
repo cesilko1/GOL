@@ -26,9 +26,18 @@ namespace Menu {
             this.State = State;
         }
 
+        public Switcher(string Title, bool State, string OnText, string OffText) {
+			base.Data.Add(State);
+            base.Title   = Title;
+            this.State   = State;
+            this.OnText  = OnText;
+            this.OffText = OffText;
+        }
+
 
         //==================== METHODS ====================//
 
+        //print componet into console
         public override string Show() {
             if(State) {
                 return Title + ": " + OnText;
@@ -38,6 +47,7 @@ namespace Menu {
             }
         }
 
+        //action when enter is pressed
         public override bool Action() {
             State = !State;
 			Data[0] = State;
