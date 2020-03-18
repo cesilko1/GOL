@@ -11,6 +11,7 @@ class gol {
 
 		menu.AddItem(new Button(" START "));
 		menu.AddItem(new Switcher(" Colors"));
+		menu.AddItem(new Input(" Generations", "100"));
 		menu.AddItem(new Button(" EXIT "));
 
 
@@ -25,8 +26,9 @@ class gol {
 
 			Thread.Sleep(delay);
 
+			int generations = int.Parse((string)menu.GetData()[2]);
 			
-			for(int i = 0; i < 100; i++) {
+			for(int i = 0; i < generations; i++) {
 
 				world.NextGen();
 
