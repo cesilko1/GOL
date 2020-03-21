@@ -1,6 +1,6 @@
 # Game of Life
 
-v 1.1.1
+v 1.1.2
 
 using [Menu library](https://github.com/cesilko1/console_menu).
 
@@ -8,7 +8,7 @@ using [Menu library](https://github.com/cesilko1/console_menu).
 
 run `app.exe`
 
-You shlould see cursor `X` which you can move by pressing arrow keys. Press `c` to revive cell or `x` to kill cell. Then you can press enter for next 100 generation.
+When you press start in menu, you shlould see cursor `X` which you can move by pressing arrow keys. Press `c` to revive cell or `x` to kill cell. Then you can press enter for start life.
 
 ---
 

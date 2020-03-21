@@ -7,12 +7,12 @@ class gol {
 
 	static void Main(string[] args) {
 
-		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v-1.1.0");
+		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v-1.1.2");
 
-		menu.AddItem(new Button(" START "));
-		menu.AddItem(new Switcher(" Colors"));
-		menu.AddItem(new Input(" Generations", "100"));
-		menu.AddItem(new Button(" EXIT "));
+		menu.AddItem(new Button("START"));
+		menu.AddItem(new Switcher("Colors"));
+		menu.AddItem(new Input("Generations", "100"));
+		menu.AddItem(new Button("EXIT"));
 
 
 		if(menu.Display() == 0) {
