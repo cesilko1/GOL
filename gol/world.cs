@@ -104,6 +104,10 @@ namespace GolWorld {
 			//print bottom border
 			FrameHorizontal();
 
+			if(CursorActive) {
+				Console.Write("c - Revive cell, x - kill cell, Enter - start");
+			}
+
 		}
 
 		//next generation of cells

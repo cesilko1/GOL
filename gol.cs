@@ -12,7 +12,7 @@ class gol {
 		menu.AddItem(new Button("START"));
 		menu.AddItem(new Switcher("Colors"));
 		menu.AddItem(new Input("Generations", "100"));
-		menu.AddItem(new Option("Speed", new string[]{"Normal", "Slow", "Fast"}));
+		menu.AddItem(new Option("Speed", new string[]{"Slow", "Normal", "Fast"}, 1));
 		menu.AddItem(new Button("EXIT"));
 
 
@@ -50,7 +50,7 @@ class gol {
 
 				Console.WriteLine();
 				int genNum = i+1;
-				Console.Write("generation: " + genNum);
+				Console.Write("generation: " + genNum.ToString().PadRight(Console.WindowWidth-(12+genNum.ToString().Length)));
 
 				Thread.Sleep(delay);
 			}
