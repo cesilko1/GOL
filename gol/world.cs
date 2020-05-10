@@ -68,7 +68,7 @@ namespace GolWorld {
 		//displays world in console
 		public void Display() {
 
-			Console.Clear();
+			Console.SetCursorPosition(0, 0);
 
 			//print top border
 			FrameHorizontal();
