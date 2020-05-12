@@ -7,7 +7,7 @@ class gol {
 
 	static void Main(string[] args) {
 
-		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v-1.2.3");
+		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v 1.2.4");
 
 		menu.AddItem(new Button("START"));
 		menu.AddItem(new Switcher("Colors"));

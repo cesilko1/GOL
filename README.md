@@ -1,6 +1,6 @@
 # Game of Life
 
-v 1.2.3
+v 1.2.4
 
 using [Menu library](https://github.com/cesilko1/console_menu).
 
