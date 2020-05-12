@@ -48,7 +48,6 @@ class gol {
 
 				world.Display();
 
-				Console.WriteLine();
 				int genNum = i+1;
 				Console.Write("generation: " + genNum.ToString().PadRight(Console.WindowWidth-(12+genNum.ToString().Length)));
 
