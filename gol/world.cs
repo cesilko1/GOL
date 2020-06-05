@@ -6,6 +6,8 @@ namespace GolWorld {
 	public class World {
 		//==================== ATRIBUTES ====================//
 
+		private const int BorderThickness = 1;
+
 		//World dimensions
 		private int WorldSizeX;
 		private int WorldSizeY;
@@ -251,7 +253,7 @@ namespace GolWorld {
 
 			if(Colored) {
 
-				for(int i = 0; i < WorldSizeX+2; i++) {
+				for(int i = 0; i < WorldSizeX+BorderThickness*2; i++) {
 					Console.BackgroundColor = ConsoleColor.Blue;
 					Console.Write(" ");
 					Console.ResetColor();
@@ -261,7 +263,7 @@ namespace GolWorld {
 
 			else {
 
-				for(int i = 0; i < WorldSizeX+2; i++) {
+				for(int i = 0; i < WorldSizeX+BorderThickness*2; i++) {
 					Console.Write("=");
 				}
 

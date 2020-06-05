@@ -7,7 +7,21 @@ class gol {
 
 	static void Main(string[] args) {
 
-		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v 1.2.4");
+		//thickness of border in chars
+		const int VerticalBorderThickness   = 2;
+		const int HorizontalBorderThickness = 3;
+
+		//legth of: "generation: "
+		const int IdentationSize = 12;
+
+		//speed options in milliseconds
+		const int slow   = 250;
+		const int normal = 100;
+		const int fast   = 25;
+
+
+
+		ConsoleMenu menu = new ConsoleMenu("Game Of Life  v 1.2.5");
 
 		menu.AddItem(new Button("START"));
 		menu.AddItem(new Switcher("Colors"));
@@ -21,20 +35,20 @@ class gol {
 
 			switch((string)menu.GetData()[3]) {
 				case "Slow":
-					delay = 250;
+					delay = slow;
 					break;
 				case "Normal":
-					delay = 100;
+					delay = normal;
 					break;
 				case "Fast":
-					delay = 25;
+					delay = fast;
 					break;
 			}
 
 
 			Console.CursorVisible = false;
 
-			World world = new World(Console.WindowWidth-2, Console.WindowHeight-3, (bool)menu.GetData()[1]);
+			World world = new World(Console.WindowWidth-VerticalBorderThickness, Console.WindowHeight-HorizontalBorderThickness, (bool)menu.GetData()[1]);
 
 			world.OpenCursor();
 
@@ -49,7 +63,7 @@ class gol {
 				world.Display();
 
 				int genNum = i+1;
-				Console.Write("generation: " + genNum.ToString().PadRight(Console.WindowWidth-(12+genNum.ToString().Length)));
+				Console.Write("generation: " + genNum.ToString().PadRight(Console.WindowWidth-(IdentationSize+genNum.ToString().Length)));
 
 				Thread.Sleep(delay);
 			}
